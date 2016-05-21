@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?"></script>
+        <title>Map</title>
+    </head>
+    <body>
+        
+        <div id="top">
+
+            <div id="settings">
+                <input id="settingIcon"  onclick="openMenu()" type="image" src="img/3bar.png" />
+            </div> 
+            <div id="logo">
+                <img  id="logoImage" src="img/icon.png" alt="iLoc Logo">
+            </div>
+
+
+        </div>
+
+        <div id="menu">
+            <h1>
+                Direction Mode
+            </h1>
+            </br>
+            <p><button type="button" class="btn btn-info" id="DRIVING" onclick="changeDirectionType(this.id)">Driving</button></p>
+            <p><button type="button" class="btn btn-default" id="WALKING" onclick="changeDirectionType(this.id)">Walking</button></p>
+            <p><button type="button" class="btn btn-default" id="BICYCLING" onclick="changeDirectionType(this.id)">Bicycling</button></p>
+            <p><button type="button" class="btn btn-default" id="TRANSIT" onclick="changeDirectionType(this.id)">Transit</button></p>
+            <hr>
+
+            <h1>
+                Map Theme
+            </h1>
+            </br>
+            <p><button type="button" class="btn btn-info" id="STANDARD" onclick="changeMapTheme(this.id)">Standard</button></p>
+            <p><button type="button" class="btn btn-default" id="DARK" onclick="changeMapTheme(this.id)">Dark</button></p>
+            <p><button type="button" class="btn btn-default" id="HIPSTER" onclick="changeMapTheme(this.id)">Hipster</button></p>
+            <p><button type="button" class="btn btn-default" id="BLUEWATER" onclick="changeMapTheme(this.id)">Blue Water</button></p>
+        </div>
+
+
+        <div id="form">
+            <form >
+              <label>Name: </label><input type="text" name="name" id="itemName"><br><br>
+              <label>Note: </label><input type="text" name="note" id="itemNote"><br><br>
+              <button type='button' id='saveItemButton' class='saveButton' onclick='addLocationOnMap(document.getElementById("form").getAttribute("lat"),
+                                                                                             document.getElementById("form").getAttribute("lng"),
+                                                                                             document.getElementById("itemName").value,
+                                                                                             document.getElementById("itemNote").value);
+
+                                                                                    saveLocation(document.getElementById("form").getAttribute("lat"),
+                                                                                             document.getElementById("form").getAttribute("lng"),
+                                                                                             document.getElementById("itemName").value,
+                                                                                             document.getElementById("itemNote").value);'>iLoc It!</button>
+            </form>
+        </div>
+        <div id="map"></div>
+        <script type="text/javascript" src="js/dataModel.js"></script>
+        <script type="text/javascript" src="js/mapModel.js"></script>
+        <!-- <button type='button' id='removeRoute' class='btn btn-danger' onClick=''>Remove Route</button> -->
+        
+
+        <div id="savedLocationsPage">
+            <div id="locations">
+                <h1>Saved Locations</h1>
+                <ul id="lol">
+                    <script type="text/javascript">
+                        for(var i = 0; i < localStorage.length; i++){
+                            document.write("<li>");              
+                            document.write("<a href='#' onClick='showOnMap(" + localStorage.key(i) +")' class='locLink'>");
+                            document.write(localStorage.key(i));
+                            document.write("</a>")
+                            document.write("<button type='button' class='deleteButton' id='"+ localStorage.key(i)+"'onclick='deleleDataLocation(this.id); deleleMapLocation(this.id);'>UnLoc!</button>");
+                            document.write("</li>");
+                        }
+                    </script>
+                </ul>
+            </div>
+            <div class='deleteAll'>
+                <script type="text/javascript">
+                if(localStorage.length != 0)
+                    document.write("<button type='button' id='deleteAll' class='deleteButton' onclick='deleteAllDataLocations(); deleteAllMapLocations();'>UnLoc All!</button>")
+                </script>
+            </div>
+        </div>
+
+        <!--- Bottom Tray -->
+
+       <div id="bottom">
+            <input id="savedLocationsPageButton" type="image" src="img/locations1.png" alt="Submit"
+            onclick="openSavedLocations()">
+            <input id="mapPageButton" type="image" src="img/map1.png" alt="Submit" onclick="openMap()">
+       </div>
+
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/mapController.js"></script>
+        <script type="text/javascript" src="js/dataController.js"></script>
+        <script type="text/javascript">
+            initialize();
+        </script>
+        
+        
+    </body>
+</html>

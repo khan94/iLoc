@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2C81BAC6-5DC8-4CD3-85DD-87E9C4CE2379</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iLoc</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DDCC009D309CC8C5BE1DFC10009AF72569251F49</key>
+		<string>https://github.com/CS410-2015Fall/Group_21_iLoc.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/iLoc.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DDCC009D309CC8C5BE1DFC10009AF72569251F49</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CS410-2015Fall/Group_21_iLoc.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DDCC009D309CC8C5BE1DFC10009AF72569251F49</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DDCC009D309CC8C5BE1DFC10009AF72569251F49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Group_21_iLoc</string>
+		</dict>
+	</array>
+</dict>
+</plist>
